@@ -9,6 +9,10 @@
 (define (area-square s)
   (area-rectangle s s))
 
+(define (area-donut r1 r2)
+  (abs (- (area-circle r1)
+          (area-circle r2))))
+
 (define (half n)
   (/ n 2))
 
@@ -24,7 +28,7 @@
 
 (define s1 100)
 (define s2 (hypotenuse-eq (half s1)))
-(define s3 (hypotenuse-eq (half s2)))
+(define s3 (hypotenuse-eq (half (hypotenuse-eq (half s1)))))
 
 (define a1 (area-visible-circle-parts s1))
 (define a2 (area-visible-circle-parts s2))
@@ -32,13 +36,9 @@
 
 (+ a1 (+ a2 a3))
 
-(define (tail-sum n s [acc 0])
-  (if (= 0 n)
-      acc
-      (tail-sum (- n 1)
-                (hypotenuse-eq (half s))
-                (+ (area-visible-circle-parts s)
-                   acc))))
-
-
-(tail-sum 3 100)
+(define (tail-sum a b s [acc 0])
+  (if (= a 1)
+      (area-visible-circle-parts s)
+      (area-visible-circle-parts (hypotenuse-eq (half s)))))
+      
+ 

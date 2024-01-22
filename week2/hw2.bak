@@ -47,22 +47,11 @@
 (define ccl2 (draw-circle r2))
 (define ccl3 (draw-circle r3))
 
-(define no-rotate-rec1 (no-rotate rec1))
-(define do-rotate-rec2 (do-rotate rec2))
-(define no-rotate-rec3 (no-rotate rec3))
-(define do-rotate-rec4 (do-rotate rec4))
-
-(define c1 (underlay ccl1
-                      do-rotate-rec2))
-
-(define c2 (underlay ccl2
-                      no-rotate-rec3))
-
-(define c3 (underlay ccl3
-                      do-rotate-rec4))
-
-
-(underlay no-rotate-rec1
-          (underlay c1
-                    (underlay c2
-                              c3)))
+(underlay (no-rotate rec1)
+          (underlay ccl1
+                    (underlay (do-rotate rec2)
+                              (underlay ccl2
+                                        (underlay (no-rotate rec3)
+                                                  (underlay ccl3
+                                                            (do-rotate rec4)))))))
+        
