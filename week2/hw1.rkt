@@ -8,11 +8,11 @@
   (* (half s) (sqrt 2)))
 
 (define (draw-square s)
-  (rectangle s s "outline" "black"))
+  (rectangle s s "outline" "yellow"))
 
 (define (draw-square-aside s)
   (define size (aside s))
-  (rectangle size size "outline" "black"))
+  (rectangle size size "outline" "yellow"))
 
 (define (no-rotate rec)
   (rotate 0 rec))
