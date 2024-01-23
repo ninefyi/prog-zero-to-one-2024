@@ -20,17 +20,19 @@
 (define (do-rotate rec)
   (rotate 45 rec))
 
-(define (tail-factorial n size rec swap)
+(define (tail-stack-overlay n size rec swap)
   (if (= n 0)
       rec
       (if (= swap 1)
-          (tail-factorial (- n 1)
+          (tail-stack-overlay (- n 1)
                           (aside size)
-                          (overlay rec (do-rotate (draw-square-aside size)))
+                          (overlay rec
+                                   (do-rotate (draw-square-aside size)))
                           0)
-          (tail-factorial (- n 1)
+          (tail-stack-overlay (- n 1)
                           (aside size)
-                          (overlay rec (no-rotate (draw-square-aside size)))
+                          (overlay rec
+                                   (no-rotate (draw-square-aside size)))
                           1))))
 
-(tail-factorial 3 100 (draw-square 100) 1)
+(tail-stack-overlay 3 100 (draw-square 100) 1)
