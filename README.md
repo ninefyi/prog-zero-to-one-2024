@@ -2,4 +2,5 @@
 
 ## Download [DrRacket](https://download.racket-lang.org/))
 
-### Week 1 (Problem and Function)
+### Week 1 (Problems and Functions)
+### Week 2 (Image and Sub problems)
